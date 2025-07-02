@@ -7,7 +7,6 @@ import os
 from dotenv import load_dotenv
 
 from app.models import db
-from app.routes.auth_routes import auth_bp
 from app.routes.vendor_routes import vendor_bp
 from app.routes.review_routes import review_bp
 
