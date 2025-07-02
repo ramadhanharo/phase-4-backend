@@ -5,6 +5,7 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 
 from app.models import db
+from app.routes.auth_routes import auth_bp  # ✅ You forgot this line
 from app.routes.vendor_routes import vendor_bp
 from app.routes.review_routes import review_bp
 
@@ -28,5 +29,10 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(vendor_bp)
     app.register_blueprint(review_bp)
+
+    # Optional: Add root route for sanity check
+    @app.route('/')
+    def index():
+        return {"message": "Locavore backend is running!"}, 200
 
     return app
